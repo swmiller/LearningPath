@@ -3,15 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using IntroMvc3.Queries;
+using OdeToFood.Models;
 
 namespace IntroMvc3.Controllers
 {
     public class ReviewsController : Controller
     {
+        FoodDb _db = new FoodDb();
+
         // GET: Reviews
         public ActionResult Index()
         {
-            return View();
+            var model = _db.Reviews.FindTheLatest(3);
+            return View(model);
         }
 
         // GET: Reviews/Details/5
