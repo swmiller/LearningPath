@@ -50,23 +50,21 @@ namespace IntroMvc3.Controllers
         // GET: Reviews/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            var model = _db.Reviews.FindById(id);
+            return View(model);
         }
 
         // POST: Reviews/Edit/5
         [HttpPost]
         public ActionResult Edit(int id, FormCollection collection)
         {
-            try
+            var model = _db.Reviews.FindById(id);
+            if (TryUpdateModel(model))
             {
-                // TODO: Add update logic here
-
                 return RedirectToAction("Index");
             }
-            catch
-            {
-                return View();
-            }
+
+            return View(model);
         }
 
         // GET: Reviews/Delete/5

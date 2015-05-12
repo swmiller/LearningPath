@@ -6,7 +6,7 @@
 
 <h2>The Latest Reviews</h2>
 
-<table class="table">
+@*<table class="table">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Body)
@@ -33,7 +33,24 @@
     </tr>
 }
 
-</table>
+</table>*@
+
+@foreach (var item in Model)
+{
+    <div class="review">
+        <h4>@item.Restaurant.Name</h4>
+        <span>Rating: @item.Rating</span>
+        <p>
+            @item.Body
+            <span class="right">
+                @Html.ActionLink("Edit", "Edit", new { id = item.ID })
+            </span>
+        </p>
+    </div>
+}
+
+
+
 
 <p>
     @Html.ActionLink("Create New", "Create")

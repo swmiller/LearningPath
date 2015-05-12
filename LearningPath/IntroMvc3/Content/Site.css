@@ -22,3 +22,27 @@ select,
 textarea {
     max-width: 280px;
 }
+
+.review 
+{    
+    padding: 2px;
+    border-bottom: 2px solid black;    
+}
+
+.review h4
+{
+    color: Maroon;
+    padding: 5px;
+    background: #cccc99
+}
+
+.review p 
+{
+    font-size: .8em;    
+}
+
+.right
+{
+    
+    float:right;
+}
