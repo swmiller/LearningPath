@@ -16,7 +16,7 @@ namespace IntroMvc3.Controllers
         [HttpGet]
         public ActionResult Search(string name = "*")
         {
-            throw new Exception("Blam!");
+            //throw new Exception("Blam!");
 
             //if (name == "*")
             //{
