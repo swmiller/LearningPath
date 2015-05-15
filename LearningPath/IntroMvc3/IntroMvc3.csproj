@@ -177,12 +177,13 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Infrasctructure\LogAttribute.cs" />
+    <Compile Include="Infrasctructure\MyHelpers.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\FoodDb.cs" />
+    <Compile Include="Models\OdeToFoodDb.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Restaurant.cs" />
-    <Compile Include="Models\RestaurantReview.cs" />
+    <Compile Include="Models\Review.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Queries\RestaurantReviewQueries.cs" />
     <Compile Include="Startup.cs" />
@@ -251,6 +252,7 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Reviews\Index.cshtml" />
     <Content Include="Views\Reviews\Edit.cshtml" />
+    <Content Include="Views\Reviews\_Review.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

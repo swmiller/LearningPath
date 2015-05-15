@@ -10,13 +10,20 @@ namespace IntroMvc3.Controllers
 {
     public class ReviewsController : Controller
     {
-        FoodDb _db = new FoodDb();
+        OdeToFoodDB _db = new OdeToFoodDB();
 
         // GET: Reviews
         public ActionResult Index()
         {
             var model = _db.Reviews.FindTheLatest(3);
             return View(model);
+        }
+
+        [ChildActionOnly]
+        public ActionResult BestReview()
+        {
+            var model = _db.Reviews.FindTheBest();
+            return PartialView("_Review", model);
         }
 
         // GET: Reviews/Details/5

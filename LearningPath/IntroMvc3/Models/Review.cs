@@ -5,7 +5,7 @@ using System.Web;
 
 namespace IntroMvc3.Models
 {
-    public class RestaurantReview
+    public class Review
     {
         public string Body { get; set; }
         public DateTime Created { get; set; }
