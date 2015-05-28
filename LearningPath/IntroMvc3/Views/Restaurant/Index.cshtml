@@ -1,10 +1,16 @@
 ﻿@model IEnumerable<IntroMvc3.Models.Restaurant>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Restaurants";
 }
 
-<h2>Index</h2>
+<h2>Restaurants</h2>
+
+@using (Html.BeginForm("Index", "Restaurant", FormMethod.Get))
+{
+    @Html.DropDownList("state", new SelectList(ViewBag.States))
+    <input type="submit" value="Filter"/>
+}
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -20,20 +26,27 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Address)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address.City), @Html.DisplayFor(modelItem => item.Address.State)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+                @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+            </td>
+        </tr>
+    }
 
 </table>
+
+<p>
+    @Html.ActionLink("Show MD restaurants", "Index", "Restaurant", new { state = "MD" }, null)
+</p>
+<p>
+    @Html.ActionLink("Show all restaurants", "Index", "Restaurant")
+</p>
